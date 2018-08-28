@@ -31,7 +31,7 @@ RUN cp /etc/postfix/master.cf /etc/postfix/master.cf.org
 ## Postfix Configuration
 RUN postconf -e compatibility_level=2
 RUN postconf -e relayhost=[smtp.gmail.com]:587
-RUN postconf -e 127.0.0.0/8 172.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+RUN postconf -e mynetworks="127.0.0.0/8 172.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128"
 
 ### SMTP Auth
 RUN postconf -e smtp_sasl_auth_enable=yes
